@@ -14,6 +14,6 @@ function divide(currentTotal=0, division) {
   return currentTotal / division
 }
 
-function operate(operator, a, b) {
-  
+function operate(operator, x, y) {
+
 }
