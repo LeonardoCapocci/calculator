@@ -1,5 +1,5 @@
 body {
-    align-content: center;
+    font-family: 'Roboto', sans-serif;
 }
 
 .header {
@@ -27,12 +27,32 @@ h6 {
 }
 
 .screen {
+    display: flex;
+    flex-direction: column;
     height: 125px;
     width: 100%;
     margin-bottom: 25px;
-    border: 2px solid black;
+    border: 1.5px solid black;
     border-radius: 8px;
     background-color: lightgray;
+}
+
+.previous-operation {
+    display: flex;
+    flex: 1;
+    justify-content: right;
+    align-items: center;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.current-operation {
+    display: flex;
+    flex: 2;
+    justify-content: right;
+    align-items: end;
+    padding: 10px;
+    font-size: 45px;
 }
 
 .buttons-grid {
@@ -45,8 +65,10 @@ h6 {
     display: flex;
     flex: 1;
     gap: 15px;
-    justify-content: center;
-    font-size: 40px;
+}
+
+.buttons-grid button {
+    font-size: 30px;
 }
 
 .editor-buttons {
@@ -56,10 +78,12 @@ h6 {
     width: 100%;
 }
 
-.editor-buttons div {
+.editor-buttons button {
+    display: flex;
+    flex: 1;
     border-radius: 8px;
     align-items: center;
-    border: 2px solid black;
+    justify-content: center;
 }
 
 #clear {
@@ -70,10 +94,12 @@ h6 {
     background-color: rgb(241, 193, 201);
 }
 
-.numbers div {
+.numbers button {
+    display: flex;
+    flex: 1;
     margin-top: 15px;
     border-radius: 8px;
     background-color: lightgray;
     align-items: center;
-    border: 2px solid black;
+    justify-content: center;
 }
