@@ -2,6 +2,7 @@ let firstOperand = ''
 let secondOperand = ''
 let operator = ''
 let displayValue = '0'
+let result = ''
 const buttons = document.querySelectorAll('button')
 const currentOperationScreen = document.querySelector('.current-operation')
 
@@ -20,6 +21,24 @@ function clickButton() {
       }
       else if (button.classList.contains('operator')) {
         inputOperator(button.value)
+      }
+      else if (button.classList.contains('equals')) {
+        calculate()
+        updateDisplay()
+        displayValue = displayValue.toString()
+      }
+      else if (button.classList.contains('clear')) {
+        firstOperand = ''
+        secondOperand = ''
+        operator = ''
+        displayValue = '0'
+        result = ''
+        updateDisplay()
+      }
+      else if (button.classList.contains('delete')) {
+        displayValue = displayValue.slice(0, -1)
+        if (displayValue == '') displayValue = '0'
+        updateDisplay()
       }
     })
   })
@@ -44,15 +63,26 @@ function inputOperator(operatorInput) {
   firstOperand = displayValue
 }
 
+function calculate() {
+  if (firstOperand !== '' && secondOperand == '') {
+    secondOperand = displayValue
+  }
+  result = operate(operator, firstOperand, secondOperand)
+  firstOperand = result
+  displayValue = firstOperand
+  secondOperand = ''
+  operator = ''
+}
+
 function operate(operator, firstOperand, secondOperand) {
   switch (operator) {
     case '+':
-      return firstOperand + secondOperand;
+      return Number(firstOperand) + Number(secondOperand);
     case '-':
-      return firstOperand - secondOperand;
+      return Number(firstOperand)- Number(secondOperand);
     case 'x':
-      firstOperand * secondOperand
+      return Number(firstOperand) * Number(secondOperand)
     case '÷':
-      return firstOperand / secondOperand
+      return Number(firstOperand) / Number(secondOperand)
   }
 }
