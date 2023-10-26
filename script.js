@@ -30,6 +30,10 @@ function clickButton() {
           calculate()
           updateDisplay()
           displayValue = displayValue.toString()
+          firstOperand = displayValue
+          operator = button.value
+          firstOperand = displayValue
+          operator = button.value
         }
         else inputOperator(button.value)
       }
@@ -87,8 +91,9 @@ function calculate() {
   result = operate(operator, firstOperand, secondOperand)
   firstOperand = result
   displayValue = firstOperand
+  firstOperand = ''
+  firstOperand = ''
   secondOperand = ''
-  operator = ''
 }
 
 function operate(operator, firstOperand, secondOperand) {
@@ -100,6 +105,6 @@ function operate(operator, firstOperand, secondOperand) {
     case 'x':
       return Number(firstOperand) * Number(secondOperand)
     case '÷':
-      return Number(firstOperand) / Number(secondOperand)
+      if (secondOperand = '0') return 'nonono'
+      else return Number(firstOperand) / Number(secondOperand)
   }
-}
