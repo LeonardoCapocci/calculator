@@ -18,6 +18,9 @@ function clickButton() {
         inputOperand(button.value)
         updateDisplay()
       }
+      else if (button.classList.contains('operator')) {
+        inputOperator(button.value)
+      }
     })
   })
 }
@@ -26,6 +29,10 @@ clickButton()
 function inputOperand(operand) {
   if (displayValue == '0') displayValue = operand
   else displayValue += operand
+}
+
+function inputOperator(operatorInput) {
+  operator = operatorInput
 }
 
 function operate(operator, firstOperand, secondOperand) {
