@@ -8,7 +8,13 @@ const currentOperationScreen = document.querySelector('.current-operation')
 
 function updateDisplay() {
   const display = document.querySelector('#display');
-  display.textContent = displayValue;
+
+  if (displayValue.length > 10) {
+    display.textContent = Number(displayValue).toExponential(6)
+  }
+  else {
+    display.textContent = displayValue;
+  }
 }
 updateDisplay()
 
@@ -29,8 +35,8 @@ function clickButton() {
       }
       else if (button.classList.contains('equals')) {
         calculate()
-        updateDisplay()
         displayValue = displayValue.toString()
+        updateDisplay()
       }
       else if (button.classList.contains('clear')) {
         firstOperand = ''
