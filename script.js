@@ -27,12 +27,21 @@ function clickButton() {
 clickButton()
 
 function inputOperand(operand) {
-  if (displayValue == '0') displayValue = operand
-  else displayValue += operand
+  if (firstOperand == '') {
+    if (displayValue == '0') displayValue = operand
+    else displayValue += operand
+  }
+  else if (displayValue == firstOperand) {
+    displayValue = operand
+  }    
+  else {
+    displayValue += operand
+  }
 }
 
 function inputOperator(operatorInput) {
   operator = operatorInput
+  firstOperand = displayValue
 }
 
 function operate(operator, firstOperand, secondOperand) {
