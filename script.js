@@ -20,7 +20,12 @@ function clickButton() {
         updateDisplay()
       }
       else if (button.classList.contains('operator')) {
-        inputOperator(button.value)
+        if (operator != '') {
+          calculate()
+          updateDisplay()
+          displayValue = displayValue.toString()
+        }
+        else inputOperator(button.value)
       }
       else if (button.classList.contains('equals')) {
         calculate()
