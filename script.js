@@ -45,6 +45,12 @@ function clickButton() {
         if (displayValue == '') displayValue = '0'
         updateDisplay()
       }
+      else if (button.classList.contains('decimal')) {
+        if (!displayValue.includes('.')) {
+          displayValue += '.'
+          updateDisplay()
+        }
+      }
     })
   })
 }
