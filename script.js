@@ -1,44 +1,29 @@
 let firstOperand = ''
 let secondOperand = ''
 let operator = ''
+let displayValue = '0'
 
-const numberButtons = document.querySelectorAll('.number')
-const operatorButtons = document.querySelectorAll('.operator')
+const buttons = document.querySelectorAll('button')
 const currentOperationScreen = document.querySelector('.current-operation')
 
-numberButtons.forEach((button) => {
-  button.addEventListener('click', currentOperationScreen.textContent += button.textContent)
-})
-
-function add(currentTotal=0, addition) {
-  return currentTotal + addition
+function updateDisplay() {
+  const display = document.querySelector('#display');
+  display.textContent = displayValue;
 }
+updateDisplay()
 
-function subtract(currentTotal=0, subtraction) {
-  return currentTotal - subtraction
-}
 
-function multiply(currentTotal=0, multiplication) {
-  return currentTotal * multiplication
-}
 
-function divide(currentTotal=0, division) {
-  return currentTotal / division
-}
 
 function operate(operator, firstOperand, secondOperand) {
   switch (operator) {
     case '+':
-      add(firstOperand, secondOperand)
-      break
+      return firstOperand + secondOperand;
     case '-':
-      subtract(firstOperand, secondOperand)
-      break
+      return firstOperand - secondOperand;
     case 'x':
-      multiply(firstOperand, secondOperand)
-      break
+      firstOperand * secondOperand
     case '÷':
-      divide(firstOperand, secondOperand)
-      break
+      return firstOperand / secondOperand
   }
 }
