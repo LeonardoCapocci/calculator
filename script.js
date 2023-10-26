@@ -32,15 +32,16 @@ function clickButton() {
           displayValue = displayValue.toString()
           firstOperand = displayValue
           operator = button.value
-          firstOperand = displayValue
-          operator = button.value
+          operator = ''
         }
         else inputOperator(button.value)
       }
       else if (button.classList.contains('equals')) {
+        if (!operator == '') {
         calculate()
         displayValue = displayValue.toString()
         updateDisplay()
+        }
       }
       else if (button.classList.contains('clear')) {
         firstOperand = ''
@@ -91,9 +92,8 @@ function calculate() {
   result = operate(operator, firstOperand, secondOperand)
   firstOperand = result
   displayValue = firstOperand
-  firstOperand = ''
-  firstOperand = ''
   secondOperand = ''
+  operator = ''
 }
 
 function operate(operator, firstOperand, secondOperand) {
@@ -105,6 +105,7 @@ function operate(operator, firstOperand, secondOperand) {
     case 'x':
       return Number(firstOperand) * Number(secondOperand)
     case '÷':
-      if (secondOperand = '0') return 'nonono'
+      if (secondOperand == '0') return 'nonono'
       else return Number(firstOperand) / Number(secondOperand)
   }
+}
